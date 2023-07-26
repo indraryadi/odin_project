@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        const getComputerChoice = ()=>{
+            const choice = ['rock', 'paper', 'scissor']
+            const random = Math.floor(Math.random() * choice.length)
+            return(choice[random])
+        }
+
+        const playRound = (userChoice, computerChoice)=>{
+            userChoice = userChoice.toLowerCase()
+            console.log(`u: ${userChoice} x c:${computerChoice}`)
+            if(userChoice == computerChoice){
+                return 'Draw'
+            }else {
+                if(userChoice === 'rock'){
+                    if(computerChoice === 'scissor'){
+                        return 'You Win'
+                    }else if(computerChoice === 'paper'){
+                        return 'You Lose'
+                    }
+                }else if(userChoice === 'scissor'){
+                    if(computerChoice === 'paper'){
+                        return 'You Win'
+                    }else if(computerChoice === 'rock'){
+                        return 'You Lose'
+                    }
+                }else if(userChoice === 'paper'){
+                    if(computerChoice === 'rock'){
+                        return 'You Win'
+                    }else if(computerChoice === 'scissor'){
+                        return 'You Lose'
+                    }
+                }else{
+                    return 'wrong input'
+                }
+            }
+        }
+        const game = ()=>{
+            for(let i =0; i<5;i++){
+                const c = getComputerChoice()
+                const u = window.prompt(`type: Scissor or Rock or Paper\n`)
+                console.log(playRound(u,c))
+            }
+            alert('game end')
+        }
+        game()
+    </script>
+</body>
+</html>
